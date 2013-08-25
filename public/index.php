@@ -2,7 +2,7 @@
 define('ROOT_DIRECTORY', __DIR__);
 echo ROOT_DIRECTORY;
 
-$host = '127.0.0.1';
+$host = 'tunnel.pagodabox.com';
 $dbName = 'db';
 $port = 3306;
 $user = 'priscila';
