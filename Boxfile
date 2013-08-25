@@ -1,0 +1,7 @@
+web1:
+  name: contact_manager
+  shared_writable_dirs:
+    - /public/img
+  document_root: /public
+  php_extensions:
+    - pdo_mysql
