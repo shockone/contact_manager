@@ -1,38 +1,31 @@
 <?php 
 
-class Contact {
-    const FIRST_NAME = 'first_name';
-    const LAST_NAME = 'last_name';
-    const PHONE = 'phone';
-    const EMAIL = 'email';
-    const ADDRESS = 'address';
-    const PHOTO = 'photo';
-
-    protected $firstName;
-    protected $lastName;
-    protected $phone;
+class Contact extends ApplicationModel {
+    protected $first_name;
+    protected $last_name;
     protected $email;
+    protected $birth_date;
+    protected $home_phone;
+
+    protected $work_phone;
+    protected $cell_phone;
+
     protected $address;
-    protected $photo;
+    protected $city;
+    protected $state;
+    protected $country;
+    protected $zip;
 
-	public function __construct($firstName, $lastName, $phone, $email, $address, $photo) {
-        $this->firstName = $firstName;
-        $this->lastName  = $lastName;
-        $this->phone     = $phone;
-        $this->email     = $email;
-        $this->address   = $address;
-        $this->photo     = $photo;
+    protected $second_address;
+    protected $second_city;
+    protected $second_state;
+    protected $second_country;
+    protected $second_zip;
 
-    }
-
-    public function save() {
-    }
-
-    public function getByID($id) {
-        $id = (int)$id;
-    }
-
-    public function all() {
+    protected function validate(){
+        return  $this->validateEmail($this->email) &&
+                $this->validatePresence($this->first_name) &&
+                $this->validatePresence($this->last_name);
     }
 
 }
