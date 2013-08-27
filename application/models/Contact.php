@@ -5,8 +5,8 @@ class Contact extends ApplicationModel {
     protected $last_name;
     protected $email;
     protected $birth_date;
-    protected $home_phone;
 
+    protected $home_phone;
     protected $work_phone;
     protected $cell_phone;
 

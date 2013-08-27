@@ -6,7 +6,7 @@
 function setErrorReporting() {
     global $config;
 
-    if ($config['DEVELOPMENT ENVIRONMENT']) {
+    if ($config['DEVELOPMENT_ENVIRONMENT']) {
         error_reporting(E_ALL);
         ini_set('display_errors','On');
     } else {

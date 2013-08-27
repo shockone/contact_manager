@@ -50,6 +50,16 @@ class ApplicationModel extends DB {
         return $properties;
     }
 
+    function __call($method, $params) {
+
+        //Strip first three characters and convert camel case to underscores.
+        $property = strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', substr($method, 3)));
+
+        if (strncasecmp($method, "get", 3)) {
+            return $this->$property;
+        }
+    }
+
     protected function validate(){
         return true;
     }

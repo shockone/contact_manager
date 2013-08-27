@@ -1,0 +1,88 @@
+.popbox {
+  display: inline-block;
+  position:relative;
+  width: 600px ;
+}
+
+  .collapse { position:relative; }
+
+  .open {
+    padding:8px;
+  }
+
+    .box {
+      display:block;
+      display:none;
+      background:#0d8025;
+      border:solid 1px #0d6d23;
+      border-radius:5px;
+      box-shadow:0px 0px 15px #094714;
+      position:absolute;
+      text-align: center;
+    }
+      .column {
+        display: inline-block;
+        vertical-align: top;
+        padding: 10px;
+      }
+
+      .box #show-second-address{
+        text-align: right;
+        cursor: pointer;
+        text-decoration: underline;
+        margin-right: 10px;
+      }
+
+      .box .button {
+        text-align: center;
+        background-color: #095d14;
+        margin-top: 10px;
+      }
+
+      .box .button:hover {
+        background-color: #096415;
+      }
+
+      #contacts-list .box p {
+        margin-top: 5px;
+        margin-bottom: -2px;
+        margin-left: 2px;
+        color: #eee;
+
+      }
+
+      .box a.close {
+       color:red;
+       font-size:12px;
+       font-family:arial;
+       text-decoration:underline;
+      }
+
+      .box input {
+        border-radius: 3px;
+        border: 0;
+        font-size: 14px;
+      }
+
+      .arrow {
+      	width: 0;
+      	height: 0;
+      	border-left: 11px solid transparent;
+      	border-right: 11px solid transparent;
+      	border-bottom: 11px solid #0d8025;
+      	position:absolute;
+      	left:1px;
+      	top:-10px;
+      	z-index:1001;
+      }
+
+      .arrow-border {
+      	width: 0;
+      	height: 0;
+      	border-left: 11px solid transparent;
+      	border-right: 11px solid transparent;
+      	border-bottom: 11px solid #0d8025;
+      	position:absolute;
+      	/*top:-12px;*/
+      	z-index:1000;
+      }

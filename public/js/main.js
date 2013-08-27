@@ -5,4 +5,8 @@ $(document).ready(function() {
 
     new List('contacts-list', options);
 
+    $('.popbox').popbox();
+    $('#show-second-address').bind('click', function(event){
+        $('#second-address').toggle();
+    });
 });
