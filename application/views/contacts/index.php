@@ -66,11 +66,57 @@
             </span>
         </div>
         <ul class="list">
-            <?php foreach($this->_contacts as $contact): ?>
+            <?php foreach($this->controller->contacts as $contact): ?>
 
             <li>
-                <h4><span class="name"><?php  echo $contact->getFirstName() . ' ' . $contact->getLastName();?></span> <span
-                        class="category"></span>
+                <h4>
+                    <!--TODO: avoid code duplication-->
+                    <span class="phones">
+                        <div class="cell-phone">
+                            <?php $phone = $contact->getCellPhone(); if($phone) echo '<p>Cell phone:</p>' . $phone; ?>
+                        </div>
+                        <div class="home-phone">
+                            <?php $phone = $contact->getHomePhone(); if($phone) echo '<p>Home phone:</p>' . $phone; ?>
+                        </div>
+                        <div class="work-phone">
+                            <?php $phone = $contact->getWorkPhone(); if($phone) echo '<p>Work phone:</p>' . $phone; ?>
+                        </div>
+                    </span>
+
+                    <span class="name">
+                        <?php  echo $contact->getFirstName() . ' ' . $contact->getLastName();?>
+                    </span>
+                    <div class="email">
+                        <?php  echo $contact->getEmail();?>
+                    </div>
+
+                    <div class="addresses">
+                        <?php
+                        if($contact->getAddress()){
+                            echo '<p>' . join(', ', array_filter(array(
+                                    $contact->getCountry(),
+                                    $contact->getState(),
+                                    $contact->getZip(),
+                                    $contact->getCity(),
+                                    $contact->getAddress()
+                                ))) . '</p>';
+                        }
+                        if($contact->getSecondAddress()){
+                            echo '<p>' . join(', ', array_filter(array(
+                                    $contact->getSecondCountry(),
+                                    $contact->getSecondState(),
+                                    $contact->getSecondZip(),
+                                    $contact->getSecondCity(),
+                                    $contact->getSecondAddress()
+                                ))) . '</p>';
+                        }
+                        ?>
+                    </div>
+
+                    <span class="category"></span>
+
+
+
                 </h4>
                 <p class="description"></p>
             </li>

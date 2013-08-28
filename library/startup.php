@@ -51,4 +51,5 @@ function __autoload($className) {
     }
 }
 
+date_default_timezone_set('America/Los_Angeles');
 setErrorReporting();

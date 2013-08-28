@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Contact manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery-latest.min.js"></script>

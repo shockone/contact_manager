@@ -9,13 +9,13 @@ class DB {
     function __construct() {
         global $config;
 
-        $this->connect($config['DB_HOST'], $config['DB_USER'], $config['DB_PASSWORD'], $config['DB_NAME']);
+        $this->connect($config['DB_HOST'], $config['DB_PORT'], $config['DB_USER'], $config['DB_PASSWORD'], $config['DB_NAME']);
         $this->_table = strtolower(get_class($this))."s";
     }
 
 
-    function connect($host, $user, $password, $dbName) {
-        $this->_dbHandle = new PDO("mysql:host=$host;dbname=$dbName", $user, $password);
+    function connect($host, $port, $user, $password, $dbName) {
+        $this->_dbHandle = new PDO("mysql:host=$host;port=$port;dbname=$dbName", $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
     }
 
 
@@ -45,7 +45,8 @@ class DB {
     function insert(array $data) {
         $data['created_at'] = $data['updated_at'] = date('Y-m-d H:i:s', time());
         $columns_list = join(',', array_keys($data));
-        $values_list = join(',', array_map(function($key){return "'" . $this->_dbHandle->quote($key) . "'";}, array_values($data)));
+        //TODO: Escape string
+        $values_list = join(',', array_map(function($key) {return "'" . $key . "'";}, array_values($data)));
 
         $query = "INSERT INTO {$this->_table} ($columns_list) values ($values_list)";
         return $this->_dbHandle->query($query);

@@ -14,4 +14,8 @@ class ApplicationController {
         $this->_view = new View($this);
         $this->_params = $_REQUEST;
     }
+
+    function redirect($controller, $action) {
+        header("Location: /$controller/$action");
+    }
 }

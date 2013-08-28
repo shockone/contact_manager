@@ -93,6 +93,13 @@ body {
 #contacts-list .list li {
     padding: 20px;
 }
+#contacts-list .list li:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+
+}
 #contacts-list li:nth-child(2n+1) {
     background-color: rgba(0, 0, 0, 0.1);
     border: solid 1px rgba(255, 255, 255, 0.1);
@@ -110,3 +117,11 @@ body {
     text-align: left;
 }
 
+.list .phones {
+  float: right;
+}
+
+.list .phones p {
+  display: inline-block;
+  width: 100px;
+}

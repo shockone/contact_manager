@@ -3,7 +3,9 @@ class ApplicationModel extends DB {
     protected $id = null;
 
     function __construct($params = null) {
-        $this->setProperties($params);
+        if($params){
+            $this->setProperties($params);
+        }
         parent::__construct();
     }
 
@@ -18,7 +20,7 @@ class ApplicationModel extends DB {
         $propertiesArray = $db->selectAll();
         $models = array();
         foreach($propertiesArray as $properties){
-            $models[] = new self($properties);
+            $models[] = new static($properties);
         }
         return $models;
     }
@@ -34,10 +36,11 @@ class ApplicationModel extends DB {
 
 
     protected function setProperties($params) {
-        if($params) {
-            foreach(array_keys($this->getProperties()) as $property){
-                $this->$property = $params[$property];
-            }
+        if(!isset($params['id'])) {
+            $params['id'] = 0;
+        }
+        foreach(array_keys($this->getProperties()) as $property){
+            $this->$property = $params[$property];
         }
     }
 
@@ -54,8 +57,7 @@ class ApplicationModel extends DB {
 
         //Strip first three characters and convert camel case to underscores.
         $property = strtolower(preg_replace('/([a-z])([A-Z])/', '$1_$2', substr($method, 3)));
-
-        if (strncasecmp($method, "get", 3)) {
+        if (strncasecmp($method, "get", 3) == 0) {
             return $this->$property;
         }
     }
@@ -78,6 +80,6 @@ class ApplicationModel extends DB {
     }
 
     protected function validateEmail($property) {
-        return preg_match('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$', $property);
+        return preg_match('/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/', $property);
     }
 }
