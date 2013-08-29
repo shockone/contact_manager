@@ -15,6 +15,12 @@ class ApplicationModel extends DB {
         return new self($properties);
     }
 
+    public static function loadJSON($id) {
+        $db = new static();
+        $properties = $db->select($id);
+        return json_encode($properties);
+    }
+
     public static function loadAll() {
         $db = new static();
         $propertiesArray = $db->selectAll();
@@ -24,6 +30,13 @@ class ApplicationModel extends DB {
         }
         return $models;
     }
+
+    public static function remove($id) {
+        $db = new static();
+        return $db->delete($id);
+
+    }
+
 
     function save() {
         if(!$this->validate()) return false;

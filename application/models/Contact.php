@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Contact extends ApplicationModel {
     protected $first_name;
@@ -21,6 +21,13 @@ class Contact extends ApplicationModel {
     protected $second_state;
     protected $second_country;
     protected $second_zip;
+
+    function getBirthDate(){
+        if ($this->birth_date != '0000-00-00'){
+            return '(' . date('jS F Y', strtotime($this->birth_date)) . ')';
+        }
+        return '';
+    }
 
     protected function validate(){
         return  $this->validateEmail($this->email) &&

@@ -75,6 +75,31 @@ body {
     color: #fafafa;
 }
 
+.edit-button {
+    display: none;
+    margin: 12px 10px 12px 30px;
+    color: #eee;
+    border-color: rgb(128, 108, 0);
+    background-color: #7B800D;
+}
+
+.edit-button:hover {
+    background-color: #9a8600;
+    color: #fafafa;
+}
+
+.delete-button {
+    display: none;
+    color: #eee;
+    border-color: rgb(128, 0, 0);
+    background-color: #800D0D;
+}
+
+.delete-button:hover {
+    background-color: #900d0d;
+    color: #fafafa;
+}
+
 .menu {
     position: fixed;
     left: 0;
@@ -104,6 +129,15 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
     border: solid 1px rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+}
+
+#contacts-list li.active {
+  background-color: rgba(194, 194, 60, 0.1);
+  border-radius: 10px;
+}
+
+#contacts-list li.active:nth-child(2n+1) {
+  border: solid 1px rgba(255, 255, 255, 0.1);
 }
 
 #contacts-list h4 {

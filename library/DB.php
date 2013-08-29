@@ -24,7 +24,7 @@ class DB {
         if($statement){
             $statement->bindParam(':id', $id, PDO::PARAM_INT);
             if($statement->execute()){
-                return $statement->fetch();
+                return $statement->fetch(PDO::FETCH_ASSOC);
             }
         }
         return false;
@@ -35,7 +35,7 @@ class DB {
         $statement = $this->_dbHandle->prepare("select * from {$this->_table}");
         if($statement){
             if($statement->execute()){
-                return $statement->fetchAll();
+                return $statement->fetchAll(PDO::FETCH_ASSOC);
             }
         }
         return false;
@@ -66,6 +66,11 @@ class DB {
         }
 
         $query = "UPDATE {$this->_table} SET " . join(', ', $normalizedData) . "where id = $id";
+        return $this->_dbHandle->query($query);
+    }
+
+    function delete($id) {
+        $query = "DELETE FROM {$this->_table} WHERE id = " . $this->_dbHandle->quote($id);
         return $this->_dbHandle->query($query);
     }
 
