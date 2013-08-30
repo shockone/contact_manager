@@ -34,7 +34,7 @@ $(document).ready(function () {
     });
 
     $('.delete-button').bind('click', function (event) {
-        var confirmed = confirm('Are you sure you want to delete ' + $('.active .name').text().trim() + '?');
+        var confirmed = confirm('Are you sure you want to delete ' + $('.active .first-name').text().trim() + '?');
         if (confirmed) {
             var id = $('.active').attr('id');
             window.location = '/contacts/delete?id=' + id;

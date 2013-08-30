@@ -45,7 +45,7 @@ class DB {
     function insert(array $data) {
         $data['created_at'] = $data['updated_at'] = date('Y-m-d H:i:s', time());
         $columns_list = join(',', array_keys($data));
-        //TODO: Escape string
+        //TODO: Escape the string
         $values_list = join(',', array_map(function($key) {return "'" . $key . "'";}, array_values($data)));
 
         $query = "INSERT INTO {$this->_table} ($columns_list) values ($values_list)";

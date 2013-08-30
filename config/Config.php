@@ -38,8 +38,8 @@ $config = new Config();
 
 $config['DEVELOPMENT_ENVIRONMENT'] = 1;
 
-$config['DB_HOST']     = 'tunnel.pagodabox.com';
-//$config['DB_HOST']     = '127.0.0.1';
+//$config['DB_HOST']     = 'tunnel.pagodabox.com';
+$config['DB_HOST']     = '127.0.0.1';
 $config['DB_NAME']     = 'db';
 $config['DB_PORT']     = 3306;
 $config['DB_USER']     = 'priscila';

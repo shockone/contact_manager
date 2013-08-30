@@ -1,5 +1,5 @@
 <?php
 
-class ErrorController extends ApplicationController {
+class ErrorsController extends ApplicationController {
 
 }

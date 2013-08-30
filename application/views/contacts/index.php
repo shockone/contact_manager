@@ -33,8 +33,9 @@
             <input class="search" placeholder="Search contacts"/>
             <span class="sort-by">
                 <span id="sort-by-text">Sort by:</span>
-                <span class="sort button" data-sort="name">First Name</span>
-                <span class="sort button" data-sort="category">Last Name</span>
+                <span class="sort button" data-sort="first-name">First Name</span>
+                <span class="sort button" data-sort="last-name">Last Name</span>
+                <span class="sort button" data-sort="email">Email</span>
             </span>
         </div>
         <ul class="list">

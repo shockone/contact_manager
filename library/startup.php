@@ -18,8 +18,6 @@ function setErrorReporting() {
 }
 
 
-/** Main Call Function **/
-
 function dispatch() {
     global $config;
     $urlArray = explode("/", strtok($_SERVER['REQUEST_URI'], '?'));
@@ -36,8 +34,6 @@ function dispatch() {
     }
 }
 
-
-/** Autoload any classes that are required **/
 
 function __autoload($className) {
     if (file_exists(ROOT_DIRECTORY . '/library/' . ucwords($className) . '.php')) {
