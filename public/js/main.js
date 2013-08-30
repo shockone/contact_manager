@@ -1,12 +1,3 @@
-jQuery.fn.center = function () {
-    this.css("position","absolute");
-    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
-        $(window).scrollTop()) + "px");
-    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
-        $(window).scrollLeft()) + "px");
-    return this;
-}
-
 $(document).ready(function () {
     //List related stuff
     var options = {
@@ -93,7 +84,6 @@ $(document).ready(function () {
                 }else{
                     active.prev().click();
                 }
-                event.center();
             } else if (event.which == 40) { //down arrow
                 var active = $('.active');
                 if (!active.length) {
@@ -101,7 +91,6 @@ $(document).ready(function () {
                 }else{
                     active.next().click();
                 }
-                event.center();
             }
         }
     });
